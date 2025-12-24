@@ -11,11 +11,12 @@ The `app/` folder with source code is therefore not included in this repository.
 
 ## Steps to run apps from existing images
 
-``bash
-#Create a network (DNS enabled)
+``bash  
+#Create a network (DNS enabled)  
 podman network create cities-net
 
-#Run times-app
+#Run times-app  
+``bash  
 podman run -d \
     --name times-app \
     --network cities-net \
