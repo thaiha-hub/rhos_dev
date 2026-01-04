@@ -1,4 +1,4 @@
-FROM registry.ocp4.example.com:8443/redhattraining/podman-ubi9.FROM registry.ocp4.example.com:8443/redhattraining/podman-ubi9.5
+FROM registry.ocp4.example.com:8443/redhattraining/podman-ubi9.5
 
 WORKDIR /tmp/hello-server
 
