@@ -4,12 +4,9 @@ WORKDIR /tmp/hello-server
 
 COPY . .
 
-RUN dnf module enable -y nodejs:22
+RUN dnf module enable -y nodejs:22 && \
+    dnf install -y nodejs npm && \
+    npm install
 
-RUN dnf install -y nodejs npm
-
-RUN npm install
-
-CMD npm start
-
+CMD npm start 
 
