@@ -1,12 +1,20 @@
-FROM registry.ocp4.example.com:8443/redhattraining/podman-ubi9.5
+FROM registry.ocp4.example.com:8443/ubi9/nodejs-22-minimal:1
 
-WORKDIR /tmp/hello-server
+LABEL org.opencontainers.image.authors="MinAn"
+LABEL com.example.environment="production"
+LABEL com.example.version="0.0.1"
+
+
+ENV SERVER_PORT=3000
+ENV NODE_ENV="production"
+
+EXPOSE $SERVER_PORT
+
+WORKDIR /opt/app-root/src
 
 COPY . .
 
-RUN dnf module enable -y nodejs:22 && \
-    dnf install -y nodejs npm && \
-    npm install
+RUN npm install
 
-CMD npm start 
+CMD npm start
 
