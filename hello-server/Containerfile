@@ -1,11 +1,15 @@
-FROM registry.ocp4.example.com:8443/redhattraining/podman-ubi9.5
+FROM registry.ocp4.example.com:8443/redhattraining/podman-ubi9.FROM registry.ocp4.example.com:8443/redhattraining/podman-ubi9.5
 
-COPY . /tmp/hello-server
+WORKDIR /tmp/hello-server
+
+COPY . .
 
 RUN dnf module enable -y nodejs:22
 
 RUN dnf install -y nodejs npm
 
-RUN cd /tmp/hello-server && npm install
+RUN npm install
 
-CMD cd /tmp/hello-server && npm start
+CMD npm start
+
+
